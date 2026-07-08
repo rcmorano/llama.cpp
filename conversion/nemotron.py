@@ -149,7 +149,10 @@ class NemotronModel(TextModel):
         yield from super().modify_tensors(data_torch, name, bid)
 
 
-@ModelBase.register("NemotronHForCausalLM")
+@ModelBase.register(
+    "NemotronHForCausalLM",
+    "NemotronHPuzzleForCausalLM",
+)
 class NemotronHModel(GraniteHybridModel):
     """Hybrid mamba2/attention model from NVIDIA"""
     model_arch = gguf.MODEL_ARCH.NEMOTRON_H
